@@ -80,6 +80,11 @@ SECTIONS
   /* Constant data into "FLASH" Rom type memory */
   .rodata :
   {
+  	/*start 支持shell命令导出*/
+	_shell_command_start = .;
+	KEEP (*(shellCommand))
+	_shell_command_end = .;
+	/*end 支持shell命令导出*/
     . = ALIGN(4);
     *(.rodata)         /* .rodata sections (constants, strings, etc.) */
     *(.rodata*)        /* .rodata* sections (constants, strings, etc.) */
