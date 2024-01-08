@@ -116,14 +116,15 @@ void MX_FREERTOS_Init(void) {
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
-
+  Shell *pShell = getShellIns();
   userShellInit();
+
 
   /* Infinite loop */
   for(;;)
   {
-    shellTask(&shell);
-    
+    shellTask(pShell);
+
     osDelay(1);
   }
   /* USER CODE END StartDefaultTask */
